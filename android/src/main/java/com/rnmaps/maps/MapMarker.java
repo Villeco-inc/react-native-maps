@@ -522,8 +522,8 @@ public class MapMarker extends MapFeature {
   }
 
   private Bitmap createDrawable() {
-    int width = this.width <= 0 ? 100 : this.width;
-    int height = this.height <= 0 ? 100 : this.height;
+    int width = this.width <= 0 ? 200 : this.width;
+    int height = this.height <= 0 ? 200 : this.height;
     this.buildDrawingCache();
 
     // Do not create the doublebuffer-bitmap each time. reuse it to save memory.
