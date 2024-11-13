@@ -522,8 +522,8 @@ public class MapMarker extends MapFeature {
   }
 
   private Bitmap createDrawable() {
-    int width = this.width <= 0 ? 200 : this.width;
-    int height = this.height <= 0 ? 200 : this.height;
+    int width = this.width <= 0 ? 100 : this.width;
+    int height = this.height <= 0 ? 100 : this.height;
     this.buildDrawingCache();
 
     // Do not create the doublebuffer-bitmap each time. reuse it to save memory.
@@ -622,4 +622,10 @@ public class MapMarker extends MapFeature {
     return BitmapDescriptorFactory.fromResource(getDrawableResourceByName(name));
   }
 
+  @Override
+  protected void onLayout(boolean changed, int l, int t, int r, int b) {
+    super.onLayout(changed, l, t, r, b);
+    this.height = b-t;
+    this.width = r-l;
+  }
 }
